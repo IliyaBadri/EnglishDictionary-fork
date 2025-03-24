@@ -6,11 +6,19 @@ p,h2{
     padding-left: 10px;
 }
 
-.part-of-speech{
+.title-bar{
     color: white;
     /* background-color: black; */
     /* text-align: center; */
     background-color: #E8AA42;
+}
+
+
+.title-bar-sources{
+    color: black;
+    /* background-color: black; */
+    /* text-align: center; */
+    background-color: #AAEE42;
 }
 
 .card-container{
@@ -21,10 +29,14 @@ p,h2{
     margin-top: 3rem;
 }
 
-a{
+.bottom-link{
     color: white;
     border: 3px solid #E8AA42;
     padding: 5px;
     background-color: #E8AA42;
     text-decoration: none;
+}
+
+.source-link {
+    color: aqua;
 }

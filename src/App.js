@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Card from './components/Card';
 import Welcome from './components/Welcome';
@@ -11,7 +11,7 @@ function App() {
     phonetic: "",
     phonetics: [],
     meanings: [],
-    sourceUrls: [],
+    sourceUrls: []
   });
   const [welcomeScreen, setWelcomeScreen] = useState(true);
 
@@ -23,7 +23,7 @@ function App() {
         phonetic: "",
         phonetics: [],
         meanings: [],
-        sourceUrls: [],
+        sourceUrls: []
       };
       setWordInformation(blankWordData);
       const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${searchValue}`
@@ -43,7 +43,7 @@ function App() {
         phonetic: finalResult.phonetic,
         phonetics: finalResult.phonetics,
         meanings: finalResult.meanings,
-        sourceUrls: finalResult.sourceUrls,
+        sourceUrls: finalResult.sourceUrls
       };
 
       setWordInformation(newWordInformation);
@@ -54,11 +54,8 @@ function App() {
 
   function changeScreen(){
     setWelcomeScreen(false);
-  }
-
-  useEffect(() => {
     loadData();
-  });
+  }
 
   return (
     <div className='main-container'>
@@ -69,7 +66,7 @@ function App() {
         : 
         <div><div className='search-box'>
           <input placeholder='Type a word..' value={searchValue} onChange={(e) => { setSearchValue(e.target.value) }}></input>
-          <button onClick={loadData}>Search</button>
+          <button onClick={() => {loadData()}}>Search</button>
         </div> <Card info={wordInformation} /></div>
       }
     </div>
