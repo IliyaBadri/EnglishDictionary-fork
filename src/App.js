@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import './App.css';
-import Card from './components/Card';
-import Welcome from './components/Welcome';
+import { useState } from "react";
+import "./App.css";
+import Card from "./components/Card";
+import Welcome from "./components/Welcome";
 
 function App() {
   const [searchValue, setSearchValue] = useState("welcome");
@@ -58,14 +58,14 @@ function App() {
   }
 
   return (
-    <div className='main-container'>
-      <div className='search-box'></div>
+    <div className="main-container">
+      <div className="search-box"></div>
       {
         welcomeScreen ? 
         <Welcome screenChangeFunction={changeScreen} /> 
         : 
-        <div><div className='search-box'>
-          <input placeholder='Type a word..' value={searchValue} onChange={(e) => { setSearchValue(e.target.value) }}></input>
+        <div><div className="search-box">
+          <input placeholder="Type a word . . ." value={searchValue} onChange={(element) => { setSearchValue(element.target.value) }}></input>
           <button onClick={() => {loadData()}}>Search</button>
         </div> <Card info={wordInformation} /></div>
       }
