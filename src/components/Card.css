@@ -6,20 +6,21 @@ p,h2{
     padding-left: 10px;
 }
 
-.partofSpeech{
+.part-of-speech{
     color: white;
     /* background-color: black; */
     /* text-align: center; */
     background-color: #E8AA42;
 }
 
-.cardContainer{
+.card-container{
     padding-bottom: 100px;
 }
-.linkContainer{
+.link-container{
     text-align: center;
     margin-top: 3rem;
 }
+
 a{
     color: white;
     border: 3px solid #E8AA42;

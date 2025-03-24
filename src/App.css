@@ -1,4 +1,4 @@
-.mainContainer {
+.main-container {
   background-color: #231955;
   color: #FFE5B4;
   background-image: url(/public/diamond-upholstery.png);
@@ -23,7 +23,7 @@ input:focus {
   outline: none;
 }
 
-.searchBox {
+.search-box {
   padding-top: 50px;
   text-align: center;
 }
@@ -44,17 +44,11 @@ button:hover {
   color: white;
 }
 
-.welscreen {
+.welcome-screen {
   margin-top: 70px;
   height: 100vh;
 }
 
-.welscreen h1 {
-  margin-bottom: 40px;
-}
-
-.searchgif {
-  display: block;
-  border-radius: 50%;
+.welcome-screen h1 {
   margin-bottom: 40px;
 }

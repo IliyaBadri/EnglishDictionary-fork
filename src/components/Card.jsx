@@ -1,44 +1,86 @@
 import React from 'react';
-import './cardstyle.css'
-
+import './Card.css';
 
 const Card = (props) => {
-    
-    const { sourceUrl, meaningofWord, word, phonetic } = props.info;
+    const {
+        loaded,
+        word,
+        phonetic,
+        phonetics,
+        meanings,
+        sourceUrls,
+    } = props.info;
+
     const audioUrl = props.info.audio;
 
-
-
     return (
-        <div className='cardContainer'>
-            <h1 className='mainWord'>{word ? word.toUpperCase() : "Loading..."}</h1>
-            <p>{phonetic}</p>
-
-            <p>Pronounce: </p>
-            
-            <audio key={Math.random()} controls>
-                <source src={audioUrl} type="audio/ogg">
-                </source></audio>
-                
+        <div className='card-container'>
             {
-                meaningofWord !== undefined ? meaningofWord.map((val, index) => {
-                    return <div key={index}>
-                        <h2 className='partofSpeech'>{val.partOfSpeech ? (val.partOfSpeech).toUpperCase() : "Wait..."} :-</h2>
-                        <ul>
-                            {
-                                val.definitions.map((def) => {
-                                    return <li key={Math.random()}>{def.definition}</li>
-                                })
-                            }
-                        </ul>
+                !loaded ? (
+                <h1>Loading. . .</h1>
+                )
+                :(
+                <>
+                    <h1>{word}</h1>
+                    <p>{phonetic}</p>
 
-                    </div>
-                }) : console.log("Fetching Meaning...")
+                    {
+                        phonetics.length > 0 ? (
+                            <p>Pronounciation: </p>
+                        )
+                        : (
+                            (<></>)
+                        )
+                    }
+                    
+                    {
+                        phonetics.map((pronounciation, index) => {
+                            if(pronounciation.audio === ""){
+                                return (<></>)
+                            }
+                            return (
+                                <audio key={Math.random()} controls>
+                                    <source src={pronounciation.audio} type="audio/ogg"></source>
+                                </audio>
+                            )
+                        })
+                    }
+
+                    {
+                        meanings.map((meaning, index) => {
+                            return (
+                                <div key={index}>
+                                    <h2 className='part-of-speech'>{meaning.partOfSpeech} :</h2>
+                                    {
+                                        meaning.definitions.length > 0 ?(
+                                            <></>
+                                        ) : (
+                                            <>
+                                                <p>Defenitions: </p>
+                                                <ul>
+                                                {
+                                                    meaning.definitions.map((defenition) => {
+                                                        return (<li key={Math.random()}>{defenition.definition}</li>)
+                                                    })
+                                                }
+                                                </ul>
+                                            </>
+                                        )
+                                    }
+                                    
+                                    
+                                </div>
+                            )
+                        })
+                    }
+                    {
+                        sourceUrls.length > 0
+                    }
+                </>
+                )
             }
 
-            <div className='linkContainer'>
-                <a href={sourceUrl}>More Info</a>
-                <br></br><br></br>
+            <div className='link-container'>
                 <a href="https://about.me/subhranshu">@Subhranhsu {new Date().getFullYear()}</a>
             </div>
 
